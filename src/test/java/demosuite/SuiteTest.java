@@ -13,6 +13,7 @@ public class SuiteTest extends BaseTest {
 
     @Test
     public void goToUrl() {
+        // Open Google Chrome instance and navigate to desired page, checking if is on correct page and click to Women Tops Products.
         browserFunctions.goToUrl(Config.get(URL));
         Assert.assertTrue(homePage.isOnPage());
         homePage.clickOnWomenTopButton();
@@ -20,6 +21,10 @@ public class SuiteTest extends BaseTest {
 
     @Test(dependsOnMethods = "goToUrl")
     public void selectItems() throws InterruptedException {
+
+        //Check if is it on Women Tops page, check if it will be on or more products.
+        //Based on values from json file the product will have size and color.
+        
         Assert.assertTrue(womenPage.isOnPage());
         if (recordOneProduct.multipleProduct()) {
             List<WebElement> sizeOptions = womenPage.getNthItemSizeOptions(recordtwoProducts.productNumber1());
@@ -48,11 +53,14 @@ public class SuiteTest extends BaseTest {
 
     @Test(dependsOnMethods = "selectItems")
     public void addToCartItems() {
+        //One single statement to segregate adding, checkout and filling shipping info.
+        //The following method will click on cart icon and proceed to checkout.
         womenPage.goToPayment();
     }
 
     @Test(dependsOnMethods = "addToCartItems")
     public void fillShippingOptions() {
+        // Method will, check if is on right page and after will fill field for shipping.
         Assert.assertTrue(shippingPage.isOnPage());
         shippingPage.setEmail(recordOneProduct.email());
         shippingPage.setFirstName(recordOneProduct.firstName());
@@ -66,5 +74,6 @@ public class SuiteTest extends BaseTest {
         shippingPage.setShippingMethod(recordOneProduct.shippingMethod());
         shippingPage.clickOnNextButton();
         shippingPage.clickOnPlaceOrderButton();
+        Assert.assertTrue(pageTitle.getText().equals("Thank you for your purchase!");
     }
 }
