@@ -1,0 +1,17 @@
+[{
+  "productNumber": 0,
+  "sizeOptions": 1,
+  "colorOption": 1,
+  "cartIndex": 1,
+  "multipleProducts": false,
+  "email": "email@email.com",
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "streetAddress": "address 1",
+  "stateProvince": "Alaska",
+  "postalCode": "1234567",
+  "city": "City",
+  "country": "United States",
+  "phoneNumber": "0722222222",
+  "shippingMethod": 0
+}]

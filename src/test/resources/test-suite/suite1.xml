@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="demo-suite">
+    <test name="test 1">
+        <parameter name="testData" value="test-data/oneProduct.json"/>
+        <classes>
+            <class name="demosuite.SuiteTest"/>
+        </classes>
+    </test>
+    <test name="test 2">
+        <parameter name="testData2" value="test-data/twoProducts.json"/>
+        <classes>
+            <class name="demosuite.SuiteTest"/>
+        </classes>
+    </test>
+</suite>
